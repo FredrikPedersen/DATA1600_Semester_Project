@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<StackPane fx:id="gameRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goty.controllers.GameController">
+   <children>
+      <Canvas fx:id="canvas" focusTraversable="true" onKeyPressed="#handlePressedKeyEvent" onKeyReleased="#handleReleasedKeyEvent" onMouseDragged="#handleMouseDraggedEvent" onMouseMoved="#handleMouseMovedEvent" onMousePressed="#handleMousePressedEvent" onMouseReleased="#handleMouseReleasedEvent" />
+      <VBox fx:id="pauseContainer" alignment="CENTER" cacheHint="SPEED" depthTest="ENABLE" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" spacing="20.0" styleClass="optionsInGame" visible="false">
+         <children>
+            <Label onMouseClicked="#resumeGame" styleClass="menuItem" text="RESUME">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label layoutX="109.0" layoutY="309.0" onMouseClicked="#restart" styleClass="menuItem" text="RESTART">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label layoutX="109.0" layoutY="346.0" onMouseClicked="#showControls" styleClass="menuItem" text="CONTROLS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label layoutX="109.0" layoutY="383.0" onMouseClicked="#sound" styleClass="menuItem" text="AUDIO">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label layoutX="109.0" layoutY="420.0" onMouseClicked="#saveClick" styleClass="back" text="SAVE AND EXIT">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label layoutX="109.0" layoutY="457.0" onMouseClicked="#exitGame" styleClass="back" text="EXIT TO MENU">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="controlBox" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" spacing="20.0" styleClass="optionsInGame" visible="false">
+         <children>
+            <Label id="controlText" styleClass="nonClick" text="Move:          WASD&#10;Fire/aim:      mouse&#10;pulsebomb:  spacebar&#10;Quicksave:    F5" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
+            <Label onMouseClicked="#backToPause" styleClass="back" text="BACK">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="audioBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" spacing="20.0" styleClass="optionsInGame" visible="false">
+         <children>
+            <Label alignment="CENTER" styleClass="nonClick" text="Music" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+            </Label>
+            <Slider fx:id="mSlider" blockIncrement="0.0" majorTickUnit="10.0" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minorTickCount="0" prefHeight="25.0" prefWidth="125.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Slider>
+            <Label alignment="CENTER" styleClass="nonClick" text="Effects" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+            </Label>
+            <Slider fx:id="eSlider" blockIncrement="0.0" majorTickUnit="10.0" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minorTickCount="0" prefHeight="25.0" prefWidth="125.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Slider>
+            <Label onMouseClicked="#backToPause" styleClass="back" text="BACK">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="highscoreSubmitBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" spacing="20.0" styleClass="optionsInGame" visible="false">
+         <children>
+            <Label alignment="CENTER" prefWidth="300.0" styleClass="nonClick" text="Wow, what a run!&#10;You've made the &#10;HIGHSCORE LIST!" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="submitField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Enter your name!" />
+            <HBox alignment="CENTER" spacing="10.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="submitButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#saveScoreName" prefHeight="40.0" prefWidth="75.0" text="Save">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="skipButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#skipHighscore" prefHeight="40.0" prefWidth="75.0" text="Skip">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox fx:id="gameOverMenu" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" spacing="20.0" styleClass="optionsInGame" visible="false">
+         <children>
+            <Label onMouseClicked="#restart" styleClass="menuItem" text="RESTART">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label layoutX="109.0" layoutY="204.0" onMouseClicked="#exitGame" styleClass="back" text="EXIT TO MENU">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </VBox>
+   </children>
+</StackPane>

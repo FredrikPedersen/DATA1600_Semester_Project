@@ -1,0 +1,6 @@
+Tenker å lage flere forslag etterhvert.
+
+To-do:
+Lage blinkeanimasjon på spiller (for når man blir truffet)
+Lage blinkeanimasjon på senter-spriten
+Lage sprites for flere typer fiender

@@ -1,0 +1,89 @@
+.root {
+    -fx-background-image: url('nightsky.jpg');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 24;
+}
+
+@font-face {
+    src: url('Games.ttf');
+}
+
+.menuItem, .back, .nonClick {
+    -fx-font-family: Games;
+    -fx-font-weight: bold;
+}
+
+.menuItem {
+    -fx-text-fill: white;
+}
+.back {
+    -fx-text-fill: #FF0000;
+}
+
+.text-field {
+    -fx-font-size: 14;
+}
+
+
+.menuItem:hover, .back:hover {
+    -fx-opacity: 0.5;
+    -fx-fill: black;
+}
+
+#ok {
+    -fx-text-fill: green;
+}
+
+
+.optionsInGame, .menu, #errorBox {
+    -fx-background-color: rgb(29,200,83);
+    -fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-color: white;
+    -fx-border-radius: 10;
+    -fx-background-radius: 15;
+}
+
+
+.slider, .scroll-bar {
+    -fx-control-inner-background: #3232ff;
+    -fx-font-size: 25;
+}
+
+.slider .thumb {
+    -fx-background-color: #3232ff;
+}
+
+.button {
+    -fx-background-color: blue;
+    -fx-background-radius: 7;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+}
+
+#errorBox {
+    -fx-background-color: #FF0000;
+}
+
+
+#errorExit {
+    -fx-fill: green;
+    -fx-font-size: 40;
+}
+
+.creditText {
+    -fx-font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    -fx-font-size: 16;
+}
+
+.creditWrap {
+    -fx-background-color: white;
+}
+
+
+
+
+
+
+

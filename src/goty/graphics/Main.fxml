@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<StackPane fx:id="menuRoot" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goty.controllers.Controller">
+   <children>
+        <VBox fx:id="mainMenu" alignment="TOP_CENTER" spacing="40.0" styleClass="blackMenu">
+            <children>
+                <ImageView fx:id="gameTitle" fitHeight="300.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@gameTitle.png" />
+                    </image>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+                </ImageView>
+                <StackPane fx:id="menuStack" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox fx:id="optionBox" alignment="CENTER" fillWidth="false" spacing="20.0" visible="false" StackPane.alignment="TOP_CENTER">
+                            <children>
+                        <Label onMouseClicked="#howToPlay" styleClass="menuItem" text="HOW TO PLAY" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label onMouseClicked="#resolutionOptions" styleClass="menuItem" text="Resolution" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="381.0" onMouseClicked="#soundOptions" styleClass="menuItem" text="Audio" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="400.0" onMouseClicked="#backToMain" styleClass="back" text="Back" textFill="RED">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="howToPlayBox" alignment="CENTER" fillWidth="false" spacing="20.0" visible="false" StackPane.alignment="TOP_CENTER">
+                            <children>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="60.0">
+                                    <children>
+                                          <Label fx:id="controls" alignment="CENTER" onMouseClicked="#showControls" styleClass="nonClick" text="CONTROLS" textAlignment="CENTER" textFill="#08fffb">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                          </Label>
+                                          <Label fx:id="pickups" contentDisplay="RIGHT" onMouseClicked="#showPickups" styleClass="nonClick" text="PICKUPS" textFill="#ea00ff">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                          </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets top="10.0" />
+                                    </padding>
+                                </HBox>
+                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity">
+                           <children>
+                                        <VBox fx:id="controlBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="20.0" StackPane.alignment="TOP_CENTER">
+                                            <children>
+                                                <Label id="controlText" styleClass="nonClick" text="move:                             wasd" textFill="WHITE" wrapText="true" />
+                                                <Label id="controlText" layoutX="10.0" layoutY="27.0" styleClass="nonClick" text="aim/fire:                       mouse" textFill="WHITE" wrapText="true" />
+                                                <Label id="controlText" layoutX="10.0" layoutY="135.0" styleClass="nonClick" text="pulsebomb:                spacebar " textFill="WHITE" wrapText="true" />
+                                                <Label id="controlText" layoutX="10.0" layoutY="181.0" styleClass="nonClick" text="quicksave:                          f5 " textFill="WHITE" wrapText="true" />
+                                                <Label id="controlText" layoutX="10.0" layoutY="224.0" styleClass="nonClick" text="pause:                              esc" textFill="WHITE" wrapText="true" />
+                                            </children>
+                                        </VBox>
+                              <TilePane fx:id="pickupBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" visible="false">
+                                 <children>
+                                                <Label contentDisplay="BOTTOM" styleClass="nonClick" text="HEALTH REGEN" textFill="#fffbfb">
+                                                    <graphic>
+                                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image url="@../../Sprites/HealthPickup/HealthPickup_3.png" />
+                                                            </image>
+                                             <viewport>
+                                                <Rectangle2D />
+                                             </viewport>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Label>
+                                                <Label contentDisplay="BOTTOM" styleClass="nonClick" text="RAPID FIRE" textFill="#fffbfb">
+                                                    <graphic>
+                                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image url="@../../Sprites/RapidFire/RapidFire_0.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Label>
+                                                <Label contentDisplay="BOTTOM" styleClass="nonClick" text="PULSE BOMB" textFill="#fffbfb">
+                                                    <graphic>
+                                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image url="@../../Sprites/Bomb/Bomb_0.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Label>
+                                                <Label contentDisplay="BOTTOM" styleClass="nonClick" text="SHIELD REGEN" textFill="#fffbfb">
+                                                    <graphic>
+                                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image url="@../../Sprites/Energy/EnergyShieldPickUp_3.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Label>
+                                 </children>
+                              </TilePane>
+                           </children>
+                        </StackPane>
+                        <Label alignment="CENTER" onMouseClicked="#backToOptions" styleClass="back" text="Back" textFill="RED">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                            </children>
+                        </VBox>
+                  <VBox fx:id="highscoreBox" alignment="CENTER" spacing="20.0" visible="false">
+                     <children>
+                        <Label fx:id="scoresText" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" lineSpacing="20.0" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="nonClick" text="Label" textFill="WHITE" wrapText="true" />
+                        <Label onMouseClicked="#backToMain" styleClass="back" text="Back" textFill="RED">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                        <VBox fx:id="errorBox" alignment="CENTER" fillWidth="false" spacing="50.0" visible="false" StackPane.alignment="TOP_CENTER">
+                            <children>
+                                <Label id="errorMessage" fx:id="errorText" styleClass="nonClick" text="error loading game!" textFill="WHITE" />
+                        <Label id="ok" onMouseClicked="#backToMain" styleClass="menuItem" text="OK" textFill="#04ff00">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Label>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="resolutionBox" alignment="CENTER" fillWidth="false" spacing="20.0" visible="false" StackPane.alignment="TOP_CENTER">
+                            <children>
+                        <Label accessibleText="Full" onMouseClicked="#changeResolution" styleClass="menuItem" text="Fullscreen" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label accessibleText="fullwindow" layoutX="254.0" layoutY="407.0" onMouseClicked="#changeResolution" styleClass="menuItem" text="Windowed Fullscreen" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label accessibleText="window" layoutX="254.0" layoutY="426.0" onMouseClicked="#changeResolution" styleClass="menuItem" text="Windowed" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="444.0" onMouseClicked="#backToOptions" styleClass="back" text="Back" textFill="RED">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="creditBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" visible="false" StackPane.alignment="TOP_CENTER">
+                            <children>
+                        <ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="275.0" vbarPolicy="ALWAYS">
+                           <content>
+                                      <Label fx:id="creditText" styleClass="creditText" text="Label" />
+                           </content>
+                        </ScrollPane>
+                        <Label onMouseClicked="#backToMain" styleClass="back" text="Back" textFill="RED">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="audioBox" alignment="CENTER" fillWidth="false" spacing="20.0" visible="false" StackPane.alignment="TOP_CENTER">
+                            <children>
+                                <Label alignment="CENTER" styleClass="nonClick" text="Music" textFill="WHITE">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="-20.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Slider fx:id="mSlider" blockIncrement="0.0" majorTickUnit="10.0" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minorTickCount="0" prefHeight="25.0" prefWidth="200.0">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Slider>
+                                <Label alignment="CENTER" styleClass="nonClick" text="Effects" textFill="WHITE">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="-20.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Slider fx:id="eSlider" blockIncrement="0.0" majorTickUnit="10.0" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minorTickCount="0" prefHeight="25.0" prefWidth="200.0">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Slider>
+                        <Label onMouseClicked="#backToOptions" styleClass="back" text="Back" textFill="RED">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="menuBox" alignment="TOP_CENTER" fillWidth="false" spacing="20.0" StackPane.alignment="TOP_CENTER">
+                            <children>
+                        <Label onMouseClicked="#enterGame" styleClass="menuItem" text="NEW GAME" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="loadGame" layoutX="254.0" layoutY="399.0" onMouseClicked="#enterGame" styleClass="menuItem" text="LOAD GAME" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="448.0" onMouseClicked="#toHighscore" styleClass="menuItem" text="SCOREBOARD" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="485.0" onMouseClicked="#enterOptions" styleClass="menuItem" text="HELP / OPTIONS" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="522.0" onMouseClicked="#credits" styleClass="menuItem" text="CREDITS" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="559.0" onMouseClicked="#exitApp" styleClass="back" text="EXIT" textFill="RED">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                            </children>
+                            <StackPane.margin>
+                                <Insets />
+                            </StackPane.margin>
+                        </VBox>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </StackPane>
+            </children>
+        </VBox>
+      <ImageView fx:id="earth" disable="true" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER">
+         <image>
+            <Image url="@../../Sprites/Objective/Objective.png" />
+         </image>
+      </ImageView>
+   </children>
+</StackPane>
